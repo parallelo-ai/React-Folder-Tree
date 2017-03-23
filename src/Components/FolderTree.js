@@ -18,7 +18,7 @@ class FolderTree extends Component {
   static defaultProps = {
     folderComponent: FolderComponent,
     fileComponent: FileComponent,
-    showToolbar: false,
+    showToolbar: true,
   };
 
   constructor(props) {
@@ -291,10 +291,7 @@ function updateAllCheckStatusUp(data, path) {
     return {};
   }
 
-  if (path.length === 1) {
-    const status = getCheckStatus(data);
-    data.status = status;
-  } else {
+  if (path.length > 1) {
     const childrenIndexToBeUpdated = path[0];
     path.splice(0, 1);
 
