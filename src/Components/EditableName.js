@@ -1,5 +1,5 @@
-import PropTypes from 'react-proptypes';
 import React from 'react';
+import PropTypes from 'react-proptypes';
 import styles from './folderTreeCSS.css'
 
 class EditableName extends React.Component {

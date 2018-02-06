@@ -1,5 +1,5 @@
-import PropTypes from 'react-proptypes';
 import React from 'react';
+import PropTypes from 'react-proptypes';
 import Checkbox from './Checkbox';
 import EditableName from './EditableName';
 import styles from './folderTreeCSS.css'

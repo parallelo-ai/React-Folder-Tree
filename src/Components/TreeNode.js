@@ -1,5 +1,5 @@
-import PropTypes from 'react-proptypes';
 import React, { Component } from 'react';
+import PropTypes from 'react-proptypes';
 
 class TreeNode extends Component {
 	static propTypes = {
