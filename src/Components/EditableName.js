@@ -1,11 +1,12 @@
+import PropTypes from 'react-proptypes';
 import React from 'react';
 import styles from './folderTreeCSS.css'
 
 class EditableName extends React.Component {
 	static propTypes = {
-	  filename: React.PropTypes.string.isRequired,
-	  setMyName: React.PropTypes.func.isRequired,
-	  selected: React.PropTypes.number.isRequired,
+	  filename: PropTypes.string.isRequired,
+	  setMyName: PropTypes.func.isRequired,
+	  selected: PropTypes.number.isRequired,
 	};
 
 	constructor(props) {

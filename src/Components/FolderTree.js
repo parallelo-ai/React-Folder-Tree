@@ -1,3 +1,4 @@
+import PropTypes from 'react-proptypes';
 import React, { Component } from 'react';
 import TreeNode from './TreeNode';
 import FolderComponent from './FolderComponent';
@@ -8,11 +9,11 @@ import styles from './folderTreeCSS.css'
 
 class FolderTree extends Component {
   static propTypes = {
-    data: React.PropTypes.object.isRequired,
-    fileComponent: React.PropTypes.func,
-    folderComponent: React.PropTypes.func,
-    onChange: React.PropTypes.func,
-    showToolbar: React.PropTypes.bool,
+    data: PropTypes.object.isRequired,
+    fileComponent: PropTypes.func,
+    folderComponent: PropTypes.func,
+    onChange: PropTypes.func,
+    showToolbar: PropTypes.bool,
   };
 
   static defaultProps = {

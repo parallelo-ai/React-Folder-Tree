@@ -2,7 +2,10 @@
   "name": "react-folder-tree",
   "author": "Shunji Zhan",
   "description": "React Folder Tree",
-  "repository" : { "type" : "git" , "url" : "https://github.com/shunjizhan/React-Folder-Tree" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shunjizhan/React-Folder-Tree"
+  },
   "version": "3.0.0",
   "private": false,
   "main": "build/index.js",
@@ -66,6 +69,7 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-fontawesome": "^1.5.0",
+    "react-proptypes": "^1.0.0",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.14.1"
   },

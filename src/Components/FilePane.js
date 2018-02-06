@@ -1,10 +1,11 @@
+import PropTypes from 'react-proptypes';
 import React, { Component } from 'react';
 import styles from './folderTreeCSS.css';
 
 class FilePane extends Component {
 	static propTypes = {
-	  addNewFile: React.PropTypes.func.isRequired,
-	  toggleAddingNewFile: React.PropTypes.func.isRequired,
+	  addNewFile: PropTypes.func.isRequired,
+	  toggleAddingNewFile: PropTypes.func.isRequired,
 	};
 
   handleNewFile = () => {

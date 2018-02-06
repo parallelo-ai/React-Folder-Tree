@@ -1,21 +1,22 @@
+import PropTypes from 'react-proptypes';
 import React, { Component } from 'react';
 
 class TreeNode extends Component {
 	static propTypes = {
-    id: React.PropTypes.number.isRequired,
-    path: React.PropTypes.array.isRequired,
-  	level: React.PropTypes.number.isRequired,
-  	children: React.PropTypes.array.isRequired,
-  	checked: React.PropTypes.number.isRequired,
-    filename: React.PropTypes.string.isRequired,
-    selected: React.PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
+    path: PropTypes.array.isRequired,
+  	level: PropTypes.number.isRequired,
+  	children: PropTypes.array.isRequired,
+  	checked: PropTypes.number.isRequired,
+    filename: PropTypes.string.isRequired,
+    selected: PropTypes.number.isRequired,
 
-  	fileComponent: React.PropTypes.func.isRequired,
-    folderComponent: React.PropTypes.func.isRequired,
+  	fileComponent: PropTypes.func.isRequired,
+    folderComponent: PropTypes.func.isRequired,
 
-  	setName: React.PropTypes.func.isRequired,
-  	setPath: React.PropTypes.func.isRequired,
-    handleCheck: React.PropTypes.func.isRequired,
+  	setName: PropTypes.func.isRequired,
+  	setPath: PropTypes.func.isRequired,
+    handleCheck: PropTypes.func.isRequired,
 	};
 
 	constructor(props) {

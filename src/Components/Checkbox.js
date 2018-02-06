@@ -1,10 +1,11 @@
+import PropTypes from 'react-proptypes';
 import React from 'react';
 import styles from './folderTreeCSS';
 
 class Checkbox extends React.Component {
 	static propTypes = {
-  	handleCheck: React.PropTypes.func.isRequired,
-  	status: React.PropTypes.number.isRequired
+  	handleCheck: PropTypes.func.isRequired,
+  	status: PropTypes.number.isRequired
 	};
 
 	componentDidUpdate(prevProps, prevState) {

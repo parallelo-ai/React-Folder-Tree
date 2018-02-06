@@ -1,3 +1,4 @@
+import PropTypes from 'react-proptypes';
 import React from 'react';
 import Checkbox from './Checkbox';
 import EditableName from './EditableName';
@@ -18,17 +19,17 @@ const FolderComponent = ({ level, checked, handleCheck, filename, toggleFolder, 
 );
 
 FolderComponent.propTypes = {
-  open: React.PropTypes.bool.isRequired,
-  path: React.PropTypes.array.isRequired, 
-  level: React.PropTypes.number.isRequired,
-  checked: React.PropTypes.number.isRequired,
-  filename: React.PropTypes.string.isRequired,
-  selected: React.PropTypes.number.isRequired,
+  open: PropTypes.bool.isRequired,
+  path: PropTypes.array.isRequired, 
+  level: PropTypes.number.isRequired,
+  checked: PropTypes.number.isRequired,
+  filename: PropTypes.string.isRequired,
+  selected: PropTypes.number.isRequired,
 
-  selectMe: React.PropTypes.func.isRequired,
-  setMyName: React.PropTypes.func.isRequired,
-  handleCheck: React.PropTypes.func.isRequired,
-  toggleFolder: React.PropTypes.func.isRequired,
+  selectMe: PropTypes.func.isRequired,
+  setMyName: PropTypes.func.isRequired,
+  handleCheck: PropTypes.func.isRequired,
+  toggleFolder: PropTypes.func.isRequired,
 }
 
 function getInden(level) {

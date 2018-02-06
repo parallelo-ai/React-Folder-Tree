@@ -1,10 +1,11 @@
+import PropTypes from 'react-proptypes';
 import React, { Component } from 'react';
 import styles from './folderTreeCSS.css';
 
 class FolderToolbar extends Component {
 	static propTypes = {
-		deleteObj: React.PropTypes.func.isRequired,	
-		toggleAddingNewFile: React.PropTypes.func.isRequired,	
+		deleteObj: PropTypes.func.isRequired,	
+		toggleAddingNewFile: PropTypes.func.isRequired,	
 	};
 
 	render() {
