@@ -23,15 +23,15 @@ const testData = {
       "children": [
         {
           "id": 5,
-          "filename": "Audio & Stereo",
+          "filename": "Audio & Stereo.shp",
         },
         {
           "id": 6,
-          "filename": "Baby & Kids Stuff",
+          "filename": "Baby & Kids Stuff.csv",
         },
         {
           "id": 7,
-          "filename": "Music, Films, Books & Games",
+          "filename": "Music, Films, Books & Games.txt",
         }
       ]
     },
@@ -207,25 +207,22 @@ export default class Sandbox extends Component {
 			    fileComponent={FileComponent}
 			    folderComponent={FolderComponent}
           onChange={onChange}
-          checkboxed={true}
+          nodeProps={{
+            shp:
+            {
+              checkbox: true
+            },
+            csv:
+            {
+              checkbox: false
+            },
+            txt:
+            {
+              checkbox: false
+            }
+          }}
 			  />
 			</div>
 		);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

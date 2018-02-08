@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Checkbox from './Checkbox';
 
-function amICheckboxed(value,checked,handleCheck){
-  if (value) {
+function hasCheckbox(checkbox,checked,handleCheck){
+  if (checkbox) {
     return (
       <Checkbox status={checked} handleCheck={handleCheck} />
     );
@@ -11,4 +11,4 @@ function amICheckboxed(value,checked,handleCheck){
   }
 }
 
-export default amICheckboxed;
+export default hasCheckbox;
