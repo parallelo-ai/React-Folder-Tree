@@ -55,10 +55,8 @@ class TreeNode extends Component {
 
   setMyPath() {
     this.props.setPath(this.props.path);
-    console.log("set My Path");
     console.log(this.props.path);
-    console.log(this.props.filename);
-    console.log(this.props);
+    console.log(this.props.originalPath);
   }
 
  	render() {
@@ -99,6 +97,7 @@ class TreeNode extends Component {
                     open={child.open}
                     level={this.state.level + 1}
                     path={this.props.path.concat(index)}
+                    originalPath={child.path}
 					        	children={child.children? child.children : []}
 
 					        	fileComponent={FileComponent}

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import FolderComponent from './Components/FolderComponent'; 
 import FileComponent from './Components/FileComponent';
 import FolderTree from './Components/FolderTree';
-
 import styles from './Components/folderTreeCSS.css';
+import {Get} from 'react-axios'
 
 const testData = {
   "id": 1,
@@ -24,6 +24,7 @@ const testData = {
         {
           "id": 5,
           "filename": "Audio & Stereo.shp",
+          "path" : "/amazing/route",
         },
         {
           "id": 6,
@@ -122,58 +123,6 @@ const testData = {
   ]
 }
 
-const testData2 = {
-  "id": 1,
-  "filename": "All Categories",
-  "children": [
-    {
-      "id": 2,
-      "filename": "For Sale",
-      "children": [
-        {
-          "id": 3,
-          "filename": "Audio & Stereo",
-      },
-      {
-        "id": 18,
-        "filename": "Motors",
-        "children": [
-          {
-            "id": 19,
-            "filename": "Car Parts & Accessories",
-          },
-          {
-            "id": 20,
-            "filename": "Cars",
-          },
-          {
-            "id": 21,
-            "filename": "Motorbike Parts & Accessories",
-          }
-        ]
-      },
-      {
-        "id": 22,
-        "filename": "Jobs",
-        "children": [
-          {
-            "id": 23,
-            "filename": "Accountancy",
-          },
-          {
-            "id": 24,
-            "filename": "Financial Services & Insurance",
-          },
-          {
-            "id": 25,
-            "filename": "Bar Staff & Management", 
-          }
-        ]
-      }
-    ]}]
-
-}
-
 
 function onChange(data) {
   console.log("onChange received the data:");
@@ -186,42 +135,72 @@ export default class Sandbox extends Component {
     testData: testData,
   }
 
-  changeData = () => {
-    console.log('change data!')
-    let newTestData = {};
-    let newData = this.state.data * (-1);
-    if (newData === 1) 
-      newTestData = testData;
-    else 
-      newTestData = testData2;
-    this.setState({testData: newTestData, data: newData});
-  }
-
 	render() {
-		return (
+    return (
       <div>
         <h1>Folder Tree with ReactJS</h1>
-        <button onClick={this.changeData}>Click me!</button>
-			  <FolderTree
-			  	data={this.state.testData}
-			    fileComponent={FileComponent}
-			    folderComponent={FolderComponent}
-          onChange={onChange}
-          nodeProps={{
-            shp:
-            {
-              checkbox: true
-            },
-            csv:
-            {
-              checkbox: false
-            },
-            txt:
-            {
-              checkbox: false
-            }
-          }}
-			  />
+        <Get url="http://localhost:8080/api/files">
+         {(error, response, isLoading, onReload) => {
+          if(error) {
+            return (
+              <div>
+                <p>Something bad happened, couldn't get data from the server: {error.message}</p>
+                <button onClick={() => onReload({ params: { reload: true } })}>Retry</button>
+                <FolderTree      
+                   data={response.data}
+                   fileComponent={FileComponent}
+                   folderComponent={FolderComponent}
+                   onChange={onChange}
+                   nodeProps={{
+                     shp:
+                     {
+                       checkbox: true
+                     },
+                     csv:
+                     {
+                       checkbox: true 
+                     },
+                     txt:
+                     {
+                       checkbox: false
+                     }
+                   }}
+                 />
+              </div>);
+          }
+          else if(isLoading) {
+            return (<div>Loading tree...</div>)
+          }
+          else if(response !== null) {
+            // Here we build the directory tree
+            return (
+              <div>
+                <button onClick={() => onReload({ params: { refresh: true } })}>Refresh</button>
+                 <FolderTree      
+                    data={response.data}
+                    fileComponent={FileComponent}
+                    folderComponent={FolderComponent}
+                    onChange={onChange}
+                    nodeProps={{
+                      shp:
+                      {
+                        checkbox: true
+                      },
+                      csv:
+                      {
+                        checkbox: true 
+                      },
+                      txt:
+                      {
+                        checkbox: false
+                      }
+                    }}
+                  />
+              </div>);
+          }
+          return (<div>Pending of getting the tree.</div>)
+         }}
+        </Get>
 			</div>
 		);
 	}
