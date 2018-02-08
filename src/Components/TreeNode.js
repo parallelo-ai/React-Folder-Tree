@@ -31,6 +31,11 @@ class TreeNode extends Component {
       open: props.open === undefined ? true : props.open,
       children: this.props.children,
     };
+
+    const filetype = this.props.filename.split(".").slice(1).pop();
+    this.nodeProps = this.props.nodeProps[filetype] || {};
+
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -55,16 +60,14 @@ class TreeNode extends Component {
 
   setMyPath() {
     this.props.setPath(this.props.path);
-    console.log(this.props.path);
+    this.nodeProps.onClick && this.nodeProps.onClick(this.props.originalPath);
     console.log(this.props.originalPath);
   }
 
  	render() {
  		const { fileComponent: FileComponent, folderComponent: FolderComponent } = this.props;
 
-    const filetype = this.props.filename.split(".").slice(1).pop();
-    const nodeprops = this.props.nodeProps[filetype];
-    const hasCheckbox = nodeprops ? nodeprops.checkbox : false;
+    const hasCheckbox = this.nodeProps ? this.nodeProps.checkbox : false;
 
  		if (this.state.children.length > 0) {
 	 		return (

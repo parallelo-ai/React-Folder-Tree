@@ -19,7 +19,8 @@ class FolderTree extends Component {
   static defaultProps = {
     folderComponent: FolderComponent,
     fileComponent: FileComponent,
-    showToolbar: false
+    showToolbar: false,
+    nodeProps: {}
   };
 
   constructor(props) {
