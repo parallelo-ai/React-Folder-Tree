@@ -59,9 +59,10 @@ class TreeNode extends Component {
   }
 
   setMyPath() {
+    const path = `${this.props.originalPath}/${this.props.filename}`
     this.props.setPath(this.props.path);
-    this.nodeProps.onClick && this.nodeProps.onClick(this.props.originalPath);
-    console.log(this.props.originalPath);
+    this.nodeProps.onClick && this.nodeProps.onClick(path);
+    console.log(path);
   }
 
  	render() {
