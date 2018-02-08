@@ -14,12 +14,14 @@ class FolderTree extends Component {
     folderComponent: PropTypes.func,
     onChange: PropTypes.func,
     showToolbar: PropTypes.bool,
+    checkboxed: PropTypes.bool,
   };
 
   static defaultProps = {
     folderComponent: FolderComponent,
     fileComponent: FileComponent,
     showToolbar: false,
+    checkboxed: true,
   };
 
   constructor(props) {
@@ -212,6 +214,7 @@ class FolderTree extends Component {
             key={this.state.data.id}
             open={this.state.data.open}
             checked={this.state.data.status}
+            checkboxed={this.state.data.checkboxed}
             selected={this.state.data.selected}
             filename={this.state.data.filename}
             children={this.state.data.children || []}
@@ -276,6 +279,8 @@ function initialize(data) {
   }
 
   data.selected = 0;
+
+  data.checkboxed = false;
 
   return data;
 }

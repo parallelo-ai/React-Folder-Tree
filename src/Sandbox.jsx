@@ -176,6 +176,7 @@ const testData2 = {
 
 
 function onChange(data) {
+  console.log("onChange received the data:");
   console.log(data);
 }
 
@@ -198,16 +199,33 @@ export default class Sandbox extends Component {
 
 	render() {
 		return (
-			<div>
-        <button onClick={this.changeData} className={styles.sandboxButton}>click me </button>
+      <div>
+        <h1>Folder Tree with ReactJS</h1>
+        <button onClick={this.changeData}>Click me!</button>
 			  <FolderTree
 			  	data={this.state.testData}
 			    fileComponent={FileComponent}
 			    folderComponent={FolderComponent}
-			    onChange={onChange}
+          onChange={onChange}
+          checkboxed={true}
 			  />
 			</div>
 		);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

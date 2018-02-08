@@ -3,13 +3,12 @@ import PropTypes from 'react-proptypes';
 import Checkbox from './Checkbox';
 import EditableName from './EditableName';
 import styles from './folderTreeCSS.css';
+import amICheckboxed from './amICheckboxed';
 
-const FolderComponent = ({ level, checked, handleCheck, filename, toggleFolder, open, setMyName, selectMe, selected }) => (
+const FolderComponent = ({ level, checked, checkboxed, handleCheck, filename, toggleFolder, open, setMyName, selectMe, selected }) => (
   <div className={styles.folder} style={{marginLeft: getInden(level)}}>
-    <Checkbox status={checked} handleCheck={handleCheck} />
-
     <a onClick={toggleFolder}><i className={open? [styles.arrowDown, styles.carat].join(' ')  : [styles.arrowRight, styles.carat].join(' ') } /> </a>
-
+    {amICheckboxed(checkboxed,checked,handleCheck)}
     <span className={selected ? [styles.folderText, styles.selected].join(' ') : styles.folderText} onClick={selectMe}>
       <i className={open? styles.foldeOpenIcon : styles.folderIcon} />   
       <EditableName filename={filename} setMyName={setMyName} selected={selected} />
@@ -23,6 +22,7 @@ FolderComponent.propTypes = {
   path: PropTypes.array.isRequired, 
   level: PropTypes.number.isRequired,
   checked: PropTypes.number.isRequired,
+  checkboxed: PropTypes.bool.isRequired,
   filename: PropTypes.string.isRequired,
   selected: PropTypes.number.isRequired,
 

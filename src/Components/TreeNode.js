@@ -8,6 +8,7 @@ class TreeNode extends Component {
   	level: PropTypes.number.isRequired,
   	children: PropTypes.array.isRequired,
   	checked: PropTypes.number.isRequired,
+  	checkboxed: PropTypes.bool.isRequired,
     filename: PropTypes.string.isRequired,
     selected: PropTypes.number.isRequired,
 
@@ -54,7 +55,11 @@ class TreeNode extends Component {
   }
 
   setMyPath() {
-  	this.props.setPath(this.props.path);
+    this.props.setPath(this.props.path);
+    console.log("set My Path");
+    console.log(this.props.path);
+    console.log(this.props.filename);
+    console.log(this.props);
   }
 
  	render() {
@@ -68,6 +73,7 @@ class TreeNode extends Component {
             path={this.props.path}
             level={this.state.level}
             checked={this.props.checked}
+            checkboxed={this.props.checkboxed}
             filename={this.props.filename}
             selected={this.props.selected}
 
@@ -84,7 +90,8 @@ class TreeNode extends Component {
 			        		<TreeNode
 					        	id={child.id}
 					        	key={child.id}
-					        	checked={child.status}
+                    checked={child.status}
+                    checkboxed={child.checkboxed}
 					        	selected={child.selected}
                     filename={child.filename}
                     open={child.open}
@@ -113,6 +120,7 @@ class TreeNode extends Component {
           path={this.props.path}
 	     		level={this.state.level}
           checked={this.props.checked}
+          checkboxed={this.props.checkboxed}
           selected={this.props.selected}
           filename={this.props.filename}
 
